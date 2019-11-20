@@ -8,7 +8,7 @@
   ],
   "sideEffect": true,
   "bin": {
-    "jIn": "lib/index.js"
+    "jAuto": "lib/index.js"
   },
   "scripts": {
     "build": "babel ./src  --out-dir ./lib",
