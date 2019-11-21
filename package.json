@@ -1,6 +1,6 @@
 {
   "name": "j-auto",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "💙工作中自建命令，让自己从重复性工作解放出来，热爱生活，热爱拉芳！",
   "keywords": [
     "auto",
@@ -29,7 +29,7 @@
     "imagemin": "^7.0.0",
     "inquirer": "^6.5.0",
     "memory-fs": "^0.4.1",
-    "puppeteer": "^2.0.0",
+    "puppeteer-core": "^2.0.0",
     "thread-loader": "^2.1.2",
     "url-loader": "^2.1.0",
     "vue-loader": "^15.7.1",
