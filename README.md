@@ -8,3 +8,7 @@ jAuto create router Example
 jAuto render http://localhost/example
 
 自动生成在当前路径下的 ./dist/html 路径下u.html
+
+### 本地服务托管静态文件夹
+
+jAuto serve ./example
