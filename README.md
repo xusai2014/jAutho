@@ -1,6 +1,6 @@
-# jAutho
+# jAuto
 
-工作中自建命令，让自己从重复性工作解放出来，热爱生活，热爱拉芳！
+
 
 ```
 npm install -g j-auto
