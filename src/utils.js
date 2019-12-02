@@ -35,6 +35,14 @@ async function pathExist(dir) {
     }
 
 }
+
+function fileExist(file) {
+    console.log(runTimePath(file))
+    return fs.existsSync(runTimePath(file));
+}
+
 export {
-    pathExist
+    pathExist,
+    fileExist,
+    runTimePath
 }

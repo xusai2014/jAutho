@@ -3,10 +3,12 @@ import yargs from 'yargs';
 import * as generate from './modules/generate';
 import * as preRender from './modules/preRender';
 import * as serve from './modules/serve';
+import * as dockerContainer from './modules/dockerContainer';
 
 yargs
     .command(generate)
     .command(preRender)
     .command(serve)
+    .command(dockerContainer)
     .help()
     .argv;
