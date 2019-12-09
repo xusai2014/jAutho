@@ -5,13 +5,13 @@
             return {};
         },
         computed: {
-            ...mapState('searchList', {
+            ...mapState('<$modules$>', {
                 pager: 'pager',
                 searchDate: 'date',
                 joinStatus: 'joinStatus',
                 dimensionList: 'dimensionList'
             }),
-            ...mapGetters('searchList', {
+            ...mapGetters('<$modules$>', {
                 columnsList: 'columnsList',
                 formattedList: 'formattedList',
                 getSearchDate: 'getSearchDate'
@@ -26,7 +26,7 @@
             }
         },
         methods: {
-            ...mapActions('searchList', {
+            ...mapActions('<$modules$>', {
                 setDimension: 'setDimension',
                 setDate: 'setDate',
                 setPageNum: 'setPageNum',

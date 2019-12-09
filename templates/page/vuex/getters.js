@@ -1,3 +1,5 @@
+import { toThousands } from '@/common/util';
+
 export function columnsList(state) {
     let dimension = state.joinStatus;
     if (dimension === 1) {

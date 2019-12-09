@@ -18,7 +18,7 @@ export default {
         list
     },
     methods: {
-        ...mapActions('searchList', {
+        ...mapActions('<$modules$>', {
             getList: 'getList'
         })
     }

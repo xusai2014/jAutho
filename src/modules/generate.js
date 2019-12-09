@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from "path";
-import { pathExist } from "../utils";
+import {pathExist, replaceFile} from "../utils";
 
-const command = `create router <name>`;
-const aliases = ['create r'];
+const command = `generate router <name>`;
+const aliases = ['generate r'];
 const desc = '创建新路由模块套件';
 const builder = (yargs) => {
     yargs.positional('name', {
@@ -30,9 +30,23 @@ const handler = async function (argv) {
         return;
     }
     fs.mkdirSync(modulesDic);
-    checkDirectory(path.resolve(__dirname, '../../templates/page/modules'), path.join(process.cwd(), modulesDic), copy);
     fs.mkdirSync(vuexDic);
-    checkDirectory(path.resolve(__dirname, '../../templates/page/vuex'), path.join(process.cwd(), vuexDic), copy);
+    const tmpList = [{
+        reg:'<\\$modules\\$>',
+        val: name
+    },{
+        reg:'<\\$modulesName\\$>',
+        val: name
+    },{
+        reg:'<\\$modulesPath\\$>',
+        val: name.toLowerCase()
+    }];
+    replaceFile(tmpList, path.resolve(__dirname, '../../templates/page/modules/index.vue'), `./src/modules/${name}/index.vue`);
+    replaceFile(tmpList, path.resolve(__dirname,'../../templates/page/modules/list.vue'), `./src/modules/${name}/list.vue`);
+    [ 'actions', 'api', 'getters', 'index', 'mutations', 'state' ].map(v => {
+        replaceFile(tmpList, path.resolve(__dirname,`../../templates/page/vuex/${v}.js`), `./src/vuex/${name}/${v}.js`);
+    });
+    replaceFile(tmpList, path.resolve(__dirname,'../../templates/page/router/tmp.js'), `./src/router/${name}.js`);
 };
 
 const copy = function (src, dst) {

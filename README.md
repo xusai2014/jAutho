@@ -9,7 +9,7 @@ npm install -g j-auto
 
 ### 创建路由套件
 ```
-jAuto create router Example
+jAuto generate router Example
 ```
 
 ### 预渲染页面生成器

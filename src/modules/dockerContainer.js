@@ -31,7 +31,6 @@ const handler = async function (argv) {
         const writable = fs.createWriteStream(path.join(process.cwd(), 'Dockerfile'));//创建写入流
         readable.pipe(writable);
         const fileStr = fs.readFileSync(path.resolve(__dirname, '../../templates/docker/nginx.conf'), 'utf-8');
-        console.log(fileStr);
         const result = fileStr.replace('public',publicPath)
         fs.writeFileSync(runTimePath('nginx.conf'),result, 'utf-8');
     } else {

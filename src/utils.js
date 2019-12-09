@@ -41,8 +41,27 @@ function fileExist(file) {
     return fs.existsSync(runTimePath(file));
 }
 
+//**
+// 示例 replaceFile(
+//      [{ reg: '<\\$modules\\$>', val: 'User'}],   替换规则
+//      '../templates/page/modules/index.vue',  模版文件
+//      './src/modules/User/index.vue'          目标文件
+// );
+//
+//
+// ***//
+
+function replaceFile(temList, temPath, desPath) {
+    let fileStr = fs.readFileSync(temPath, 'utf-8');
+    temList.map((v) => {
+        fileStr = fileStr.replace(new RegExp(v.reg,"gm"), v.val);
+    });
+    fs.writeFileSync(runTimePath(desPath), fileStr, 'utf-8');
+}
+
 export {
     pathExist,
     fileExist,
-    runTimePath
+    runTimePath,
+    replaceFile
 }
