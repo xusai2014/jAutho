@@ -72,27 +72,49 @@
     <ah-card class="box-card">
         <div slot="header" class="box-card-header">
             <span class="box-card-title">
-                <ah-select
-                        :value="joinStatus"
-                        @change="onDimensionChange"
-                        placeholder="请选择"
-                >
-                    <ah-option
-                            v-for="item in dimensionList"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
-                    ></ah-option>
-                </ah-select>
+                <ah-form :inline="true" :model="formInline" label-width="80px" size="mini" label-position="right">
+                    <ah-form-item label="手机号">
+                        <ah-input v-model="formInline.phoneNum" placeholder="手机号"></ah-input>
+                    </ah-form-item>
+                    <ah-form-item label="车牌号">
+                        <ah-input v-model="formInline.phoneNum" placeholder="车牌号"></ah-input>
+                    </ah-form-item>
+                    <ah-form-item label="车型级别">
+                        <ah-select v-model="formInline.region" placeholder="车型级别">
+                            <ah-option label="区域一" value="shanghai"></ah-option>
+                            <ah-option label="区域二" value="beijing"></ah-option>
+                        </ah-select>
+                    </ah-form-item>
+                    <ah-form-item label="城市">
+                        <ah-select v-model="formInline.region" placeholder="城市">
+                            <ah-option label="区域一" value="shanghai"></ah-option>
+                            <ah-option label="区域二" value="beijing"></ah-option>
+                        </ah-select>
+                    </ah-form-item>
+                    <ah-form-item label="合同状态">
+                        <ah-select v-model="formInline.region" placeholder="车型级别">
+                            <ah-option label="区域一" value="shanghai"></ah-option>
+                            <ah-option label="区域二" value="beijing"></ah-option>
+                        </ah-select>
+                    </ah-form-item>
+                    <ah-form-item label="服务状态">
+                        <ah-select v-model="formInline.region" placeholder="车型级别">
+                            <ah-option label="区域一" value="shanghai"></ah-option>
+                            <ah-option label="区域二" value="beijing"></ah-option>
+                        </ah-select>
+                    </ah-form-item>
+                    <ah-form-item>
+                        <ah-button type="primary" icon="ah-icon-refresh" @click="onSubmit">重置</ah-button>
+                        <ah-button type="primary" icon="ah-icon-remove" @click="onSubmit">查询</ah-button>
+                    </ah-form-item>
+                    <div class="box-card-actions">
+                        <router-link :to='{name: "DriverManagerAdd"}'>
+                            <ah-button type="primary">新建司机</ah-button>
+                        </router-link>
+                    </div>
+                </ah-form>
             </span>
-            <div class="box-card-actions">
-                <ah-date-picker
-                        v-model="date"
-                        type="date"
-                        placeholder="选择日期"
-                        @change="onDateChange"
-                ></ah-date-picker>
-            </div>
+
         </div>
         <div class="table-container">
             <ah-table
@@ -138,6 +160,20 @@
     </ah-card>
 </template>
 <style lang="stylus" scoped>
+    .ah-form-item
+        width 190px
+        margin-right 0
+        margin-bottom 0
+
+        .ah-input
+            width 100px
+
+        .ah-select
+            width 100px
+
+        .ah-button
+            margin-left 10px
+            width 70px
     .box-card
         .box-card-header
             overflow hidden
