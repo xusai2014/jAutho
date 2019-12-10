@@ -30,6 +30,8 @@ const handler = async function (argv) {
         return;
     }
     fs.mkdirSync(modulesDic);
+    fs.mkdirSync(`${modulesDic}/List`);
+    fs.mkdirSync(`${modulesDic}/Add`);
     fs.mkdirSync(vuexDic);
     const tmpList = [{
         reg:'<\\$modules\\$>',
@@ -42,7 +44,8 @@ const handler = async function (argv) {
         val: name.toLowerCase()
     }];
     replaceFile(tmpList, path.resolve(__dirname, '../../templates/page/modules/index.vue'), `./src/modules/${name}/index.vue`);
-    replaceFile(tmpList, path.resolve(__dirname,'../../templates/page/modules/list.vue'), `./src/modules/${name}/list.vue`);
+    replaceFile(tmpList, path.resolve(__dirname,'../../templates/page/modules/List/index.vue'), `./src/modules/${name}/List/index.vue`);
+    replaceFile(tmpList, path.resolve(__dirname,'../../templates/page/modules/Add/index.vue'), `./src/modules/${name}/Add/index.vue`);
     [ 'actions', 'api', 'getters', 'index', 'mutations', 'state' ].map(v => {
         replaceFile(tmpList, path.resolve(__dirname,`../../templates/page/vuex/${v}.js`), `./src/vuex/${name}/${v}.js`);
     });

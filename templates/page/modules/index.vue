@@ -1,32 +1,28 @@
 <script>
+    import breadCrumbsNav from '../common/breadcrumb';
 
-import list from './list';
-import { mapActions } from 'vuex';
-
-export default {
-    async created() {
-        this.$changeLoadingState(true);
-        try {
-            await this.getList();
-        } catch (error) {
-
+    export default {
+        created() {
+        },
+        computed: {
+        },
+        components: {
+            breadCrumbsNav
+        },
+        watch: {
+        },
+        methods: {
         }
-        this.$changeLoadingState(false);
-    },
-    computed: {},
-    components: {
-        list
-    },
-    methods: {
-        ...mapActions('<$modules$>', {
-            getList: 'getList'
-        })
-    }
-};
+    };
 </script>
 
 <template>
     <article class="main">
-    <list></list>
+        <bread-crumbs-nav></bread-crumbs-nav>
+        <router-view></router-view>
     </article>
 </template>
+
+<style lang="stylus" scoped>
+
+</style>

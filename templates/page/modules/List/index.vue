@@ -1,6 +1,15 @@
 <script>
     import { mapState, mapActions, mapGetters } from 'vuex';
     export default {
+        async created() {
+            this.$changeLoadingState(true);
+            try {
+                await this.getList();
+            } catch (error) {
+
+            }
+            this.$changeLoadingState(false);
+        },
         data() {
             return {};
         },
