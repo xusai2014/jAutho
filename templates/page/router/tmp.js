@@ -15,7 +15,8 @@ export default {
         path: 'list',
         name: '<$modulesName$>List',
         meta: {
-            breadcrumbName: 'List'
+            breadcrumbName: 'List',
+            requiresAuth: true
         },
         component(resolve) {
             require.ensure([], () => resolve(require('@/modules/<$modulesName$>/List/default')));
@@ -26,6 +27,9 @@ export default {
         children: [{
             path: 'default',
             name: '<$modulesName$>Default',
+            meta: {
+                requiresAuth: true
+            },
             component(resolve) {
                 require.ensure([], () => resolve(require('@/modules/<$modulesName$>/List')));
             }
@@ -33,7 +37,8 @@ export default {
             path: 'detail',
             name: '<$modulesName$>Detail',
             meta: {
-                breadcrumbName: 'Detail'
+                breadcrumbName: 'Detail',
+                requiresAuth: true
             },
             component(resolve) {
                 require.ensure([], () => resolve(require('@/modules/<$modulesName$>/Detail')));
@@ -42,7 +47,8 @@ export default {
             path: 'add',
             name: '<$modulesName$>Add',
             meta: {
-                breadcrumbName: 'Add'
+                breadcrumbName: 'Add',
+                requiresAuth: true
             },
             component(resolve) {
                 require.ensure([], () => resolve(require('@/modules/<$modulesName$>/Add')));

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from "path";
-import {pathExist, replaceFile} from "../utils";
+import {fileExist, pathExist, replaceFile, runTimePath} from "../utils";
 
 const command = `generate router <name>`;
 const aliases = ['generate r'];
@@ -52,7 +52,22 @@ const handler = async function (argv) {
     [ 'actions', 'api', 'getters', 'index', 'mutations', 'state' ].map(v => {
         replaceFile(tmpList, path.resolve(__dirname,`../../templates/page/vuex/${v}.js`), `./src/vuex/${name}/${v}.js`);
     });
+    if(fileExist(`./src/vuex/AutoVuex.js`)){
+        fs.appendFile(runTimePath(`./src/vuex/AutoVuex.js`),`export { default as ${name} } from './${name}';`,function (err) {
+            if(err) throw err;
+        });
+    } else {
+        console.warn('无Vuex自动代码生成文件，故不进行状态自动绑定，该警告可忽略！');
+    }
     replaceFile(tmpList, path.resolve(__dirname,'../../templates/page/router/tmp.js'), `./src/router/${name}.js`);
+    if(fileExist(`./src/router/AutoRouter.js`)){
+        fs.appendFile(runTimePath(`./src/router/AutoRouter.js`),`export { default as ${name} } from './${name}';`,function (err) {
+            if(err) throw err;
+        });
+    } else {
+        console.warn('无路由自动代码生成文件，故不进行路由自动绑定，该警告可忽略！');
+    }
+    console.info('路由套件生成成功！！');
 };
 
 const copy = function (src, dst) {
