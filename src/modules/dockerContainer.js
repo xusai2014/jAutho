@@ -3,7 +3,7 @@ import path from "path";
 import {pathExist, fileExist, runTimePath} from "../utils";
 
 const command = `create docker [publicPath]`;
-const aliases = ['create d'];
+const aliases = ['create','d'];
 const desc = '创建Docker容器化套件';
 const builder = (yargs) => {
     yargs.positional('publicPath', {
@@ -25,11 +25,20 @@ const handler = async function (argv) {
         console.log('nginx.conf文件已经存在');
         return;
     }
+    if (fileExist('./build.sh')) {
+        console.log('nginx.conf文件已经存在');
+        return;
+    }
 
     if(publicPath){
         const readable = fs.createReadStream(path.resolve(__dirname, '../../templates/docker/Dockerfile'));//创建读取流
         const writable = fs.createWriteStream(path.join(process.cwd(), 'Dockerfile'));//创建写入流
         readable.pipe(writable);
+
+        const readable1 = fs.createReadStream(path.resolve(__dirname, '../../templates/docker/build.sh'));//创建读取流
+        const writable1 = fs.createWriteStream(path.join(process.cwd(), 'build.sh'));//创建写入流
+        readable.pipe(writable1);
+
         const fileStr = fs.readFileSync(path.resolve(__dirname, '../../templates/docker/nginx.conf'), 'utf-8');
         const result = fileStr.replace('public',publicPath)
         fs.writeFileSync(runTimePath('nginx.conf'),result, 'utf-8');

@@ -3,7 +3,7 @@ import path from "path";
 import {fileExist, pathExist, replaceFile, runTimePath} from "../utils";
 
 const command = `generate router <name>`;
-const aliases = ['generate r'];
+const aliases = ['generate','r'];
 const desc = '创建新路由模块套件';
 const builder = (yargs) => {
     yargs.positional('name', {
@@ -53,7 +53,9 @@ const handler = async function (argv) {
         replaceFile(tmpList, path.resolve(__dirname,`../../templates/page/vuex/${v}.js`), `./src/vuex/${name}/${v}.js`);
     });
     if(fileExist(`./src/vuex/AutoVuex.js`)){
-        fs.appendFile(runTimePath(`./src/vuex/AutoVuex.js`),`export { default as ${name} } from './${name}';`,function (err) {
+        fs.appendFile(runTimePath(`./src/vuex/AutoVuex.js`),`
+        export { default as ${name} } from './${name}';
+        `,function (err) {
             if(err) throw err;
         });
     } else {
@@ -61,7 +63,9 @@ const handler = async function (argv) {
     }
     replaceFile(tmpList, path.resolve(__dirname,'../../templates/page/router/tmp.js'), `./src/router/${name}.js`);
     if(fileExist(`./src/router/AutoRouter.js`)){
-        fs.appendFile(runTimePath(`./src/router/AutoRouter.js`),`export { default as ${name} } from './${name}';`,function (err) {
+        fs.appendFile(runTimePath(`./src/router/AutoRouter.js`),`
+        export { default as ${name} } from './${name}';
+        `,function (err) {
             if(err) throw err;
         });
     } else {
