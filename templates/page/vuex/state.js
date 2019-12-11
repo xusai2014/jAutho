@@ -16,6 +16,10 @@ export default {
             label: '黑名单广告位'
         }
     ],
+    searchForm: {
+        phoneNum: '',
+        region: ''
+    },
     date: current,
     list: [],
     pager: {

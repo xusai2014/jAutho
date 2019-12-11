@@ -18,7 +18,8 @@
                 pager: 'pager',
                 searchDate: 'date',
                 joinStatus: 'joinStatus',
-                dimensionList: 'dimensionList'
+                dimensionList: 'dimensionList',
+                formInline: 'searchForm'
             }),
             ...mapGetters('<$modules$>', {
                 columnsList: 'columnsList',
@@ -108,8 +109,8 @@
                         <ah-button type="primary" icon="ah-icon-remove" @click="onSubmit">查询</ah-button>
                     </ah-form-item>
                     <div class="box-card-actions">
-                        <router-link :to='{name: "DriverManagerAdd"}'>
-                            <ah-button type="primary">新建司机</ah-button>
+                        <router-link :to='{name: "<$modulesName$>Add"}'>
+                            <ah-button type="primary">新建</ah-button>
                         </router-link>
                     </div>
                 </ah-form>
@@ -144,6 +145,16 @@
                         :align="column.align"
                         class="header-class"
                 >
+                </ah-table-column>
+                <ah-table-column
+                        fixed="right"
+                        label="操作"
+                        width="100">
+                    <template slot-scope="scope">
+                        <router-link :to='{name: "<$modulesName$>Detail" }'>
+                            <ah-button type="text" size="small">查看</ah-button>
+                        </router-link>
+                    </template>
                 </ah-table-column>
             </ah-table>
             <div class="table-list-page">

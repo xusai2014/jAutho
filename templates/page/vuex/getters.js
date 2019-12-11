@@ -1,136 +1,87 @@
 import { toThousands } from '@/common/util';
 
 export function columnsList(state) {
-    let dimension = state.joinStatus;
-    if (dimension === 1) {
-        return [
-            {
-                label: '统计日期',
-                prop: 'flowDate',
-                width: '',
-                align: 'left',
-                formatter: (row, column)=>{
-                    const arr = row[column.property].split('');
-                    const [a, b, c, d, e, f, g, h] = arr;
-                    return `${a}${b}${c}${d}-${e}${f}-${g}${h}`;
-                }
-            },
-            {
-                label: '广告位名称',
-                prop: 'adposName',
-                width: '',
-                align: 'left'
-            },
-            {
-                label: '广告位ID',
-                prop: 'adposId',
-                width: '',
-                align: 'left'
-
-            },
-            {
-                label: '日请求量',
-                prop: 'maxReq',
-                width: '',
-                align: 'left',
-                showTooltip: true
-            },
-            {
-                label: '广告位路径',
-                prop: 'adposPath',
-                width: '',
-                align: 'left'
+    return [
+        {
+            label: '手机号',
+            prop: 'phoneNum',
+            width: '',
+            align: 'left',
+            formatter: (row, column)=>{
+                const arr = row[column.property].split('');
+                const [a, b, c, d, e, f, g, h] = arr;
+                return `${a}${b}${c}${d}-${e}${f}-${g}${h}`;
             }
-        ];
-    } else if (dimension === 0) {
-        return [
-            {
-                label: '统计日期',
-                prop: 'flowDate',
-                width: '',
-                align: 'left',
-                formatter: (row, column)=>{
-                    const arr = row[column.property].split('');
-                    const [a, b, c, d, e, f, g, h] = arr;
-                    return `${a}${b}${c}${d}-${e}${f}-${g}${h}`;
-                }
-            },
-            {
-                label: '广告位名称',
-                prop: 'adposName',
-                width: '',
-                align: 'left'
-            },
-            {
-                label: '广告位ID',
-                prop: 'adposId',
-                width: '',
-                align: 'left'
+        },
+        {
+            label: '司机姓名',
+            prop: 'phoneNum',
+            width: '',
+            align: 'left'
+        },
+        {
+            label: '城市',
+            prop: 'phoneNum',
+            width: '',
+            align: 'left'
 
-            },
-            {
-                label: '日请求量',
-                prop: 'maxReq',
-                width: '',
-                align: 'left',
-                showTooltip: true
-            },
-            {
-                label: '未接入DSP原因',
-                prop: 'reason',
-                width: '',
-                align: 'left'
-            },
-            {
-                label: '广告位页面url',
-                prop: 'pageUrl',
-                width: '',
-                align: 'left',
-                renderDom: (row, column) => {
-                    return `<a href='${row[column.property]}' />`;
-                }
-            }
-        ];
-    } else if (dimension === 2) {
-        return [
-            {
-                label: '统计日期',
-                prop: 'flowDate',
-                width: '',
-                align: 'left',
-                formatter: (row, column)=>{
-                    const arr = row[column.property].split('');
-                    const [a, b, c, d, e, f, g, h] = arr;
-                    return `${a}${b}${c}${d}-${e}${f}-${g}${h}`;
-                }
-            },
-            {
-                label: '广告位名称',
-                prop: 'adposName',
-                width: '',
-                align: 'left'
-            }, {
-                label: '广告位ID',
-                prop: 'adposId',
-                width: '',
-                align: 'left'
-            }, {
-                label: '日请求量',
-                prop: 'maxReq',
-                width: '',
-                align: 'left',
-                showTooltip: true
-            },
-            {
-                label: '广告位地址',
-                prop: 'pageUrl',
-                width: '',
-                align: 'left'
-            }
-
-        ];
-    }
-    return [];
+        },
+        {
+            label: '时间',
+            prop: 'phoneNum',
+            width: '',
+            align: 'left',
+            showTooltip: true
+        },
+        {
+            label: '已评订单数',
+            prop: 'phoneNum',
+            width: '',
+            align: 'left'
+        },
+        {
+            label: '用户评分',
+            prop: 'phoneNum',
+            width: '',
+            align: 'left'
+        },
+        {
+            label: '车内脏乱有异味',
+            prop: 'phoneNum',
+            width: '120',
+            align: 'left'
+        },
+        {
+            label: '驾驶习惯差，乘坐不舒服',
+            prop: 'phoneNum',
+            width: '120',
+            align: 'left'
+        },
+        {
+            label: '未着正装，服务不标准',
+            prop: 'phoneNum',
+            width: '120',
+            align: 'left'
+        },
+        {
+            label: '未配备饮用水，WIFI',
+            prop: 'phoneNum',
+            width: '120',
+            align: 'left'
+        },
+        {
+            label: '上下车不开车门',
+            prop: 'phoneNum',
+            width: '120',
+            align: 'left'
+        },
+        {
+            label: '不熟悉路况',
+            prop: 'phoneNum',
+            width: '',
+            align: 'left'
+        }
+    ];
 }
 
 export function formattedSummary(state) {

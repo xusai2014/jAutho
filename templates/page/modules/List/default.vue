@@ -11,7 +11,7 @@
 </script>
 
 <template>
-    <article class="main">Detail</article>
+    <router-view></router-view>
 </template>
 
 <style lang="stylus" scoped>
