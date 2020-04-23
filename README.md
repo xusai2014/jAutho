@@ -25,3 +25,8 @@ jAuto render http://localhost/example
 ```
 jAuto serve ./example
 ```
+### 批量压缩图片（jpg|png）
+
+```
+jAuto zip ./example
+```
