@@ -1,6 +1,6 @@
 {
   "name": "j-auto",
-  "version": "1.1.5",
+  "version": "1.1.7",
   "description": "💙工作中自建命令，让自己从重复性工作解放出来，热爱生活，热爱拉芳！",
   "keywords": [
     "auto",
@@ -17,23 +17,26 @@
   "author": "Jerry xu",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^3.0.0",
-    "chokidar": "^3.0.2",
-    "imagemin": "^7.0.0",
-    "inquirer": "^6.5.0",
-    "lighthouse": "^5.6.0",
-    "progress": "^2.0.3",
-    "puppeteer-core": "^2.0.0",
-    "yargs": "^13.3.0",
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4",
     "@babel/node": "^7.7.0",
     "@babel/plugin-syntax-async-generators": "^7.2.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.5.0",
+    "@babel/preset-env": "^7.5.4",
     "@babel/register": "^7.5.5",
-    "@babel/runtime": "^7.5.4"
+    "@babel/runtime": "^7.5.4",
+    "chalk": "^3.0.0",
+    "chokidar": "^3.0.2",
+    "inquirer": "^6.5.0",
+    "lighthouse": "^5.6.0",
+    "progress": "^2.0.3",
+    "puppeteer-core": "^2.0.0",
+    "yargs": "^13.3.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "imagemin": "^7.0.1",
+    "imagemin-jpegtran": "^6.0.0",
+    "imagemin-pngquant": "^8.0.0"
+  }
 }
