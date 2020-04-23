@@ -34,7 +34,7 @@ function fileDisplay (imagePath){
                 })
             ]
         }).then((...args) => {
-            console.log(`${filePath}/*.{jpg,png}`,'压缩图片成功！',args);
+            console.log(`${filePath}/*.{jpg,png}`,'压缩图片成功！');
             files.forEach((filename)=>{
                 const filedir = path.join(imagePath,filename);
                 //根据文件路径获取文件信息，返回一个fs.Stats对象
